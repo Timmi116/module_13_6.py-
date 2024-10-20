@@ -58,14 +58,14 @@ async def set_age(call):
 @dp.message_handler(state=UserState.age)
 async def set_growth(message, state):
     await state.update_data(age=float(message.text))
-    await message.answer('Введите свой рост (см.):')
+    await message.answer('Введите свой рост в самнитиметрах:')
     await UserState.growth.set()
 
 
 @dp.message_handler(state=UserState.growth)
 async def set_weight(message, state):
     await state.update_data(growth=float(message.text))
-    await message.answer('Введите свой вес (кг.):')
+    await message.answer('Введите свой вес в килограммах:')
     await UserState.weight.set()
 
 
